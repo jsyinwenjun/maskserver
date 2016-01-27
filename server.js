@@ -6,7 +6,7 @@ var user        = require('./routes/user');
 var path        = require('path'); 
 
 // Constants
-var PORT = 8888;
+var PORT = 80;
 
 // App
 var app = express();
