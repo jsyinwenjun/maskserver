@@ -109,6 +109,8 @@ exports.checkToken = function(req, res, next) {
 
 
 exports.upload = function(req, res) {
+         console.log("upload start");
+
 	var form = new formidable.IncomingForm();
 	form.encoding = 'utf-8';
     form.uploadDir = process.env.USER_PHOTO_TEMP_DIR;
