@@ -39,7 +39,7 @@ exports.signin = function(req, res) {
 };
 
 exports.signup = function (req, res) {
-    User.findOne({email: req.body.email, password: req.body.password}, function(err, user) {
+    User.findOne({email: req.body.email}, function(err, user) {
         if (err) {
             res.json({
                 success: false,
