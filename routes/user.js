@@ -109,8 +109,6 @@ exports.checkToken = function(req, res, next) {
 
 
 exports.upload = function(req, res) {
-         console.log("upload start");
-
 	var form = new formidable.IncomingForm();
 	form.encoding = 'utf-8';
     form.uploadDir = process.env.USER_PHOTO_TEMP_DIR;
@@ -124,9 +122,7 @@ exports.upload = function(req, res) {
 	      	message: "Error occured: " + err
 	      });
 	      return;		
-	    }  
-	     console.log(fields);
-         console.log(files);
+	    }
 	    var extName = fields.name.match(/.[\w+]+$/);
 	    if (req.user.photo) {
 	    	fs.unlink(process.env.USER_PHOTO_DIR + '/' + req.user.photo);
