@@ -124,35 +124,12 @@ exports.upload = function(req, res) {
 	      return;		
 	    }  
 	     
-	    var extName = '';  //后缀名
-	    switch (files.content.type) {
-	      case 'image/pjpeg':
-	        extName = 'jpg';
-	        break;
-	      case 'image/jpeg':
-	        extName = 'jpg';
-	        break;		 
-	      case 'image/png':
-	        extName = 'png';
-	        break;
-	      case 'image/x-png':
-	        extName = 'png';
-	        break;		 
-	    }
-
-	    if(extName.length == 0){
-	    	res.json({
-		      	success: false,
-		      	message: "Only support jpg/png."
-		     });
-	        return;				   
-	    }
-
+	    var extName = fields.name.match(/.[\w+]+$/);
 	    if (req.user.photo) {
 	    	fs.unlink(process.env.USER_PHOTO_DIR + '/' + req.user.photo);
 	    }
 
-	    var avatarName = req.user.email + Date.now() + '.' + extName;
+	    var avatarName = req.user.email + Date.now() + extName;
 	    var newPath = process.env.USER_PHOTO_DIR + '/' + avatarName;
 	    fs.rename(files.content.path,newPath);
 	    console.log("file upload success at: " + newPath);
