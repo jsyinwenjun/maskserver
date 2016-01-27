@@ -1,6 +1,6 @@
 FROM node:0.8-onbuild
 
 RUN chmod o=rwx -R /usr/src/app/tmp/
-RUN chmod o=rwx -R /usr/src/app/public/static/user/photo
+RUN chmod o=rwx -R /usr/src/app/public/static/user/photo/
 
 EXPOSE 80
