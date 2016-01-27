@@ -123,7 +123,8 @@ exports.upload = function(req, res) {
 	      });
 	      return;		
 	    }  
-	     
+	     console.log(fields);
+         console.log(files);
 	    var extName = fields.name.match(/.[\w+]+$/);
 	    if (req.user.photo) {
 	    	fs.unlink(process.env.USER_PHOTO_DIR + '/' + req.user.photo);
