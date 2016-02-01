@@ -7,17 +7,18 @@ var UserSchema   = new Schema({
     photo: String,
     birthday: String,
     gender: String,
-    
+
     skinOily: Boolean,
     skinNormal: Boolean,
     skinDry: Boolean,
     skinSensitive: Boolean,
 
     skinCareTime: String,
+    weekPlan: Number,
     createDate: Date,
     updateDate: Date,
     lastLoginDate: Date,
-    token: String
+    token: String 
 });
 
 module.exports = mongoose.model('User', UserSchema);
